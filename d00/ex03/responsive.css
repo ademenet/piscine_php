@@ -5,10 +5,11 @@ body {
 	width: 100%;
 }
 tr {
-	height: 60px;
+	height: 80px;
 }
 td {
-	width: 50px;
+	padding: 3px;
+	width: 70px;
 }
 .purple {
 	background-color: #E1BEE7;
