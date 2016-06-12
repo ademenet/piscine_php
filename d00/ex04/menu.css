@@ -20,39 +20,43 @@ a:hover, a:active {
 	color: #FAFAFA;
 	background-color: #42A5F5;
 }
-#deroule, #deroule ul {
+.deroule, .deroule ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
-#deroule {
+.deroule {
 	text-align: center;
 }
-#deroule li {
+.deroule li {
 	display: inline-block;
 }
-#deroule ul li {
+.deroule ul li {
 	display: inherit;
 	background-color: #90CAF9;
 }
-#deroule a {
+.deroule a {
 	text-decoration: none;
 	display: block;
 }
-#deroule ul {
+.deroule ul {
 	position: absolute;
 	left: -999em;
 	text-align: left;
 	z-index: 1000;
 }
-#deroule li:hover ul {
+.deroule li:hover > ul {
 	left: auto;
 }
-#deroule li .sousmenu {
+.deroule li li:hover > ul {
+	left: 85px;
+	top: 0
+}
+.deroule li .sousmenu {
 	display: none;
 	position: relative;
 }
-#deroule li:hover .sousmenu {
+.deroule li:hover .sousmenu {
 	display: block;
 	position: absolute;
 	left: 100px;
