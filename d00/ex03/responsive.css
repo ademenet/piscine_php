@@ -5,11 +5,7 @@ body {
 	width: 100%;
 }
 tr {
-	height: 80px;
-}
-td {
-	padding: 3px;
-	width: 70px;
+	width: 100%;
 }
 .purple {
 	background-color: #E1BEE7;
@@ -38,41 +34,18 @@ td {
 .lime {
 	background-color: #E6EE9C;
 }
-@media (min-width: 960px) {
-	.symbol {
-		text-align: center;
-		font-weight: 900;
-		font-size: 2rem;
-		clear: both;
-	}
-	.numatom {
-		font-size: 0.9rem;
-		float: left;
-	}
-	.poids {
-		font-size: 0.9rem;
-		float: right;
-	}
+.symbol {
+	text-align: center;
+	font-weight: 500;
+	font-size: 2vw;
+	clear: both;
+	margin: 2.5px;
 }
-@media (max-width: 960px) {
-	tr {
-		height: 40px;
-	}
-	td {
-		width: 30px;
-	}
-	.symbol {
-		text-align: center;
-		font-weight: 900;
-		font-size: 1.2rem;
-		clear: both;
-	}
-	.numatom {
-		font-size: 0.5rem;
-		float: left;
-	}
-	.poids {
-		font-size: 0.5rem;
-		float: right;
-	}
+.numatom {
+	font-size: 0.7vw;
+	float: left;
+}
+.poids {
+	font-size: 0.7vw;
+	float: right;
 }
