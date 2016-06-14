@@ -13,21 +13,16 @@
 		return $str;
 	}
 
-	$str = "";
-	$len = 0;
 	$tab = array();
 	if ($argc > 1) {
-		if (isset($argv)) {
-			$len = count($argv);
-			for ($i = 1; $i < $len; $i++) {
-				$str = $str . " " . $argv[$i];
-			}
-			$str = ft_epur($str);
-			$tab = ft_split($str);
-			sort($tab);
-			foreach (array_slice($tab, 0) as $var) {
-				echo $var . "\n";
-			}
+		$str = ft_epur($argv[1]);
+		$tab = ft_split($str);
+		$save = $tab[0];
+		$str = "";
+		foreach (array_slice($tab, 1) as $value) {
+			$str = $str . $value . " ";
 		}
+		$str = trim($str);
+		echo $str . " " . $save . "\n";
 	}
  ?>
