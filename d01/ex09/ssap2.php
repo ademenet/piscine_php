@@ -22,33 +22,28 @@
 	}
 
 	function mysort($a, $b) {
-		$i = 0;
-		if (ctype_alpha($a) && ctype_alpha($b))
-			return strcasecmp($a, $b);
-		elseif (ctype_alpha($a) && !(ctype_alpha($b)))
+		$spa = str_split($a);
+		$spb = str_split($b);
+		$diff = array_udiff($spa, $spb, 'strcasecmp');
+		$key = key($diff);
+		if (ctype_alpha($a[$key]) && ctype_alpha($b[$key]))
+			return strcasecmp($a[$key], $b[$key]);
+		elseif (ctype_alpha($a[$key]) && !(ctype_alpha($b[$key])))
 			return -1;
-		elseif (!(ctype_alpha($a)) && ctype_alpha($b))
+		elseif (!(ctype_alpha($a[$key])) && ctype_alpha($b[$key]))
 			return 1;
-		elseif (ctype_digit($a) && ctype_digit($b))
+		elseif (ctype_digit($a[$key]) && ctype_digit($b[$key]))
+			return strcmp($a[$key], $b[$key]);
+		elseif (ctype_digit($a[$key]) && ctype_alpha($b[$key]))
+			return 1;
+		elseif (ctype_alpha($a[$key]) && ctype_digit($b[$key]))
+			return -1;
+		elseif (ctype_digit($a[$key]) && !(ctype_digit($b[$key])) && !(ctype_alpha($b[$key])))
+			return -1;
+		elseif (!(ctype_digit($a[$key])) && !(ctype_alpha($a[$key])) && ctype_digit($b[$key]))
+			return 1;
+		elseif (!(ctype_digit($a) && ctype_alpha($a)) && !(ctype_digit($b) && ctype_alpha($b)))
 			return strcmp($a, $b);
-		elseif (ctype_digit($a) && ctype_alpha($b))
-			return 1;
-		elseif (ctype_alpha($a) && ctype_digit($b))
-			return -1;
-		elseif (ctype_digit($a) && !(ctype_digit($b)) && !(ctype_alpha($b)))
-			return -1;
-		elseif (!(ctype_digit($a)) && !(ctype_alpha($a)) && ctype_digit($b))
-			return 1;
-		elseif (!(ctype_digit($a) && ctype_alpha($a)) && !(ctype_digit($b) && ctype_alpha($a)))
-			return strcmp($a, $b);
-		else {
-			$i = 0;
-			while ($a[$i] - $b[$i] === 0 && (empty($a[$i]) || empty($b[$i]))) {
-				$i++;
-			}
-			return (mysort($a[$i], $b[$i]));
-		}
-
 	}
 
 	$str = "";
