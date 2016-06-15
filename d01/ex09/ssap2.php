@@ -21,15 +21,34 @@
 		$tab[$index2] = $tmp;
 	}
 
-	function mysort($tab) {
-		if (is_array($tab)) {
-			$len = count($tab);
-			for ($i = 0; $i < $len; $i++) {
-				echo "strcasecmp " . $tab[$i] . " " . $tab[$i + 1] . " == " . strcasecmp($tab[$i], $tab[$i + 1]) . "\n";
-				if (strcasecmp($tab[$i], $tab[$i + 1]) > 0)
-					array_swap($tab, $i, $i + 1);
+	function mysort($a, $b) {
+		$i = 0;
+		if (ctype_alpha($a) && ctype_alpha($b))
+			return strcasecmp($a, $b);
+		elseif (ctype_alpha($a) && !(ctype_alpha($b)))
+			return -1;
+		elseif (!(ctype_alpha($a)) && ctype_alpha($b))
+			return 1;
+		elseif (ctype_digit($a) && ctype_digit($b))
+			return strcmp($a, $b);
+		elseif (ctype_digit($a) && ctype_alpha($b))
+			return 1;
+		elseif (ctype_alpha($a) && ctype_digit($b))
+			return -1;
+		elseif (ctype_digit($a) && !(ctype_digit($b)) && !(ctype_alpha($b)))
+			return -1;
+		elseif (!(ctype_digit($a)) && !(ctype_alpha($a)) && ctype_digit($b))
+			return 1;
+		elseif (!(ctype_digit($a) && ctype_alpha($a)) && !(ctype_digit($b) && ctype_alpha($a)))
+			return strcmp($a, $b);
+		else {
+			$i = 0;
+			while ($a[$i] - $b[$i] === 0 && (empty($a[$i]) || empty($b[$i]))) {
+				$i++;
 			}
+			return (mysort($a[$i], $b[$i]));
 		}
+
 	}
 
 	$str = "";
@@ -42,8 +61,7 @@
 		}
 		$str = ft_epur($str);
 		$tab = ft_split($str);
-		print_r($tab);
-		mysort($tab);
+		usort($tab, "mysort");
 		foreach (array_slice($tab, 0) as $var) {
 			echo $var . "\n";
 		}
