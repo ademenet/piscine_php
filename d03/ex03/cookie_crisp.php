@@ -4,8 +4,8 @@
 			setcookie($_GET['name'], $_GET['value']);
 		}
 		if ($_GET['action'] == "get") {
-			if ($_COOKIE[$_GET['value']]) {
-				echo $_COOKIE[$_GET['value']] . "\n";
+			if ($_COOKIE[$_GET['name']]) {
+				echo $_COOKIE[$_GET['name']] . "\n";
 			}
 		}
 		if ($_GET['action'] == "del") {
