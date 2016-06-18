@@ -1,0 +1,54 @@
+<!--
+                                                          :::      ::::::::
+     scumm.html                                         :+:      :+:    :+:
+                                                      +:+ +:+         +:+
+     By: ademenet <ademenet@student.42.fr>          +#+  +:+       +#+
+                                                  +#+#+#+#+#+   +#+
+     Created: 2016/06/13 15:05:38 by ademenet          #+#    #+#
+     Updated: 2016/06/13 15:05:39 by ademenet         ###   ########.fr
+-->
+
+<html>
+	<head>
+		<title>Day of the 42</title>
+		<link rel="stylesheet" type="text/css" href="scumm.css">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div class="top">
+			<img src="./resources/day_of_the_42.png" title="day-42" class="day-of-42" />
+			<a href="scumm.html">
+				<img src="./resources/reload.png" title="Recommencer au début" alt="Recommencer au début" class="img-reload" />
+			</a>
+			<a href="http://www.relaischateaux.com/">
+				<img src="./resources/close.gif" title="Déconnecter" alt="Déconnecter" class="img-close" />
+			</a>
+			<img src="./resources/loupe.png" title="Loupe" alt="Loupe" class="img-loupe" />
+		</div>
+		<div class="container">
+			<div class="left">
+				<a href="scumm-avancer.html" target="_self"><img src="./resources/arrow.png" title="Avancer" alt="Avancer" class="img-left" /></a>
+				<img src="./resources/main.png" title="Prendre" alt="Prendre" class="img-left" />
+				<a href="scumm-regarder.html" target="_self"><img src="./resources/oeil.png" title="Regarder" alt="Regarder" class="img-left border" /></a>
+				<img src="./resources/outil.png" title="Utiliser" alt="Utiliser" class="img-left" />
+				<a href="scumm-parler.html" target="_self"><img src="./resources/chat-icon.png" title="Parler" alt="Parler" class="img-left" /></a>
+			</div>
+			<div class="middle">
+				<map name="Cluster">
+				</map>
+				<img usemap="#Cluster" src="./resources/cluster.jpg" title="Cluster 42" alt="Cluster 42" class="img-cluster" />
+			</div>
+			<div class="right">
+				<img src="./resources/book.png" tittle="Book" alt="Book" class="img-book" />
+				<img src="./resources/towel.png" tittle="Towel" alt="Towel" class="img-towel" />
+				<div class="brick-repeat"></div>
+			</div>
+		</div>
+		<div class="chat-box">
+			<font size="3px" face="verdana">
+				<p>Choisissez une action sur la gauche et partez en exploration !</p>
+			</font>
+			</p>
+		</div>
+	</body>
+</html>
