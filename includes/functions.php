@@ -87,7 +87,9 @@ function get_userinfos($login) {
 }
 
 function del_user($login) {
-	
+	$base = mysqli_connect('localhost', 'root', 'peer2peer', 'myDB');
+	$search = mysqli_query($base, "DELETE FROM user WHERE login = '$login'");
+	return TRUE;
 }
 
 function rm_product($name)
