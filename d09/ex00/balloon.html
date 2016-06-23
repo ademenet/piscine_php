@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.center {
+				margin-left: auto;
+				margin-right: auto;
+				vertical-align: middle;
+			}
+			#balloon {
+				width: 200px;
+				height: 200px;
+				background-color: #F44336;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="balloon" class="center"></div>
+		<script type="text/javascript">
+			var color = 1;
+			var balloon = document.getElementById("balloon");
+			balloon.onclick = function changecolor() {
+				if (color == 1) {
+					balloon.style.backgroundColor = "#4CAF50";
+					color++;
+				}
+				else if (color == 2) {
+					balloon.style.backgroundColor = "#2196F3";
+					color = 0;
+				}
+				else {
+					balloon.style.backgroundColor = "#F44336";
+					color = 1;
+				}
+			}
+
+			function blow() {
+				var lastheight = balloon.height();
+				var newheight = lastheight + 10;
+				balloon.css({ 'height', newheightkfjzhgkgjfjdfgjmcgmdgjdgj'px' });
+			}
+		</script>
+	</body>
+</html>
+var lastwidth=$('.content').height();
+    var final=lastwidth+20
+    $('.content').css('min-height',final+'px')
