@@ -35,16 +35,14 @@
 					balloon.style.backgroundColor = "#F44336";
 					color = 1;
 				}
+				blow();
 			}
 
 			function blow() {
-				var lastheight = balloon.height();
+				var lastheight = balloon.height;
 				var newheight = lastheight + 10;
-				balloon.css({ 'height', newheightkfjzhgkgjfjdfgjmcgmdgjdgj'px' });
+				balloon.css({ 'height' : newheight + 'px' });
 			}
 		</script>
 	</body>
 </html>
-var lastwidth=$('.content').height();
-    var final=lastwidth+20
-    $('.content').css('min-height',final+'px')
