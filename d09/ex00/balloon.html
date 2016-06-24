@@ -4,10 +4,11 @@
 		<meta charset="utf-8">
 		<title></title>
 		<style type="text/css">
+			* {
+				margin: auto;
+			}
 			.center {
-				margin-left: auto;
-				margin-right: auto;
-				vertical-align: middle;
+				margin: auto;
 			}
 			#balloon {
 				width: 200px;
@@ -20,28 +21,34 @@
 	<body>
 		<div id="balloon" class="center"></div>
 		<script type="text/javascript">
-			var color = 1;
+
 			var balloon = document.getElementById("balloon");
-			balloon.onclick = function changecolor() {
-				if (color == 1) {
-					balloon.style.backgroundColor = "#4CAF50";
-					color++;
+			var color = ["#F44336", "#4CAF50", "#2196F3"];
+			var click = 0;
+
+			balloon.onclick = function blow() {
+				click++;
+				balloon.style.backgroundColor = color[click % 3];
+				var newHeight = balloon.offsetHeight + 10;
+				var newWidth = balloon.offsetWidth + 10;
+				if (newHeight > 420 && newWidth > 420) {
+					newHeight = 200;
+					newWidth = 200;
 				}
-				else if (color == 2) {
-					balloon.style.backgroundColor = "#2196F3";
-					color = 0;
-				}
-				else {
-					balloon.style.backgroundColor = "#F44336";
-					color = 1;
-				}
-				blow();
+				balloon.style.height = newHeight + 'px';
+				balloon.style.width = newWidth + 'px';
 			}
 
-			function blow() {
-				var lastheight = balloon.height;
-				var newheight = lastheight + 10;
-				balloon.css({ 'height' : newheight + 'px' });
+			balloon.onmouseleave = function deflate() {
+				if (balloon.offsetHeight > 200 && balloon.offsetWidth > 200) {
+					var newHeight = balloon.offsetHeight - 5;
+					var newWidth = balloon.offsetWidth - 5;
+				}
+				balloon.style.height = newHeight + 'px';
+				balloon.style.width = newWidth + 'px';
+				click = click == 0 ? click = 2 : click - 1;
+				console.debug(click);
+				balloon.style.backgroundColor = color[click % 3];
 			}
 		</script>
 	</body>
