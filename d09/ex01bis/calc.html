@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="myForm">
+			<form id="calculator">
+				<input type="text" id="fstNum"/>
+				<select id="operators">
+					<option>+</option>
+					<option>-</option>
+					<option>*</option>
+					<option>/</option>
+					<option>%</option>
+				</select>
+				<input type="text" id="secNum" />
+				<input type="submit" value="Try me!" onclick="calculator()" />
+			</form>
+			<script type="text/javascript">
+
+						setInterval(function() {
+							alert('Please, use me...')
+						}, 30000);
+
+						function calculator() {
+							var theOperator = $('#operators').val();
+							var theFstNum = $('#fstNum').val();
+							var theSecNum = $('#secNum').val();
+							var result = 0;
+							if (!isNaN(theFstNum) && !isNaN(theSecNum)) {
+								theFstNum = parseInt(theFstNum);
+								theSecNum = parseInt(theSecNum);
+								if (theFstNum >= 0 && theSecNum >= 0) {
+									if ((theFstNum == 0 || theSecNum == 0) && (theOperator == '/' || theOperator == '%')) {
+										alert('It’s over 9000!');
+										console.log('It’s over 9000!');
+										return;
+									} else if (theOperator == '+') {
+										result = theFstNum + theSecNum;
+									} else if (theOperator == '-') {
+										result = theFstNum - theSecNum;
+									} else if (theOperator == '*') {
+										result = theFstNum * theSecNum;
+									} else if (theOperator == '/') {
+										result = theFstNum / theSecNum;
+									} else if (theOperator == '%') {
+										result = theFstNum % theSecNum;
+									}
+									alert(result);
+									console.log(result);
+								} else {
+									alert('Error :(');
+									return;
+								}
+							} else {
+								alert('Error :(');
+								return;
+							}
+						}
+
+			</script>
+	</body>
+</html>

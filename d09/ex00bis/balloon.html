@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js" ></script>
+		<style type="text/css">
+			* {
+				margin: auto;
+			}
+			.center {
+				margin: auto;
+			}
+			#balloon {
+				width: 200px;
+				height: 200px;
+				background-color: #F44336;
+				border-radius: 100%;
+			}
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<div id="balloon" class="center"></div>
+		<script type="text/javascript">
+			var color = ["#F44336", "#4CAF50", "#2196F3"];
+			var click = 0;
+
+			$('#balloon').click(function() {
+				click++;
+				$(this).css('background-color', color[click % 3]);
+				var newHeight = $(this).height() + 10;
+				var newWidth = $(this).width() + 10;
+				if (newHeight > 420 && newWidth > 420) {
+					newHeight = 200;
+					newWidth = 200;
+				}
+				$(this).css('height', newHeight);
+				$(this).css('width', newWidth);
+			});
+
+			$('#balloon').mouseout(function() {
+				if ($(this).height() > 200 && $(this).width() > 200) {
+					var newHeight = $(this).height() - 5;
+					var newWidth = $(this).width() - 5;
+				}
+				$(this).css('height', newHeight);
+				$(this).css('width', newWidth);
+				click = click == 0 ? click = 2 : click - 1;
+				$(this).css('background-color', color[click % 3]);
+			});
+		</script>
+	</body>
+</html>

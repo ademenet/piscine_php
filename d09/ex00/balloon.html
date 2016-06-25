@@ -21,7 +21,6 @@
 	<body>
 		<div id="balloon" class="center"></div>
 		<script type="text/javascript">
-
 			var balloon = document.getElementById("balloon");
 			var color = ["#F44336", "#4CAF50", "#2196F3"];
 			var click = 0;
@@ -47,7 +46,6 @@
 				balloon.style.height = newHeight + 'px';
 				balloon.style.width = newWidth + 'px';
 				click = click == 0 ? click = 2 : click - 1;
-				console.debug(click);
 				balloon.style.backgroundColor = color[click % 3];
 			}
 		</script>
